@@ -25,7 +25,7 @@
             async init() {
                 const dataInfo = await axios({
                     method: 'GET',
-                    url: '/api/verify-code-canvas2/',
+                    url: '/api/verify-code-canvas/',
                     data: {a: 1, b: 2},
                 });
                 console.log(dataInfo);
