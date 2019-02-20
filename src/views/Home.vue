@@ -17,6 +17,7 @@
 
 <script>
     import axios from '@/utils/axios';
+    import env from '@/utils/env';
 
     export default {
         name: 'home',
@@ -28,7 +29,7 @@
                     url: '/api/verify-code-canvas/',
                     data: {a: 1, b: 2},
                 });
-                console.log(dataInfo);
+                console.log(dataInfo, 'env', env);
             },
         },
         mounted() {
