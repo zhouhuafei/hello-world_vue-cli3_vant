@@ -1,5 +1,8 @@
 import axios from 'axios';
 import qs from 'qs';
+import {
+    merge,
+} from 'lodash';
 
 /*
 axios.interceptors.request.use(function (config) {
@@ -43,6 +46,13 @@ axios.interceptors.request.use(function (config) {
 */
 
 export default function (opts) {
+    opts = merge({
+        method: 'GET', // 请求方式默认GET
+        timeout: 30000, // 超时
+        isHandleError: true, // 是否处理错误
+        isHandleFailure: true, // 是否处理失败
+        isHandleSuccess: false, // 是否处理成功
+    }, opts);
     opts.method = (opts.method || opts.type || 'GET').toUpperCase();
     if (opts.method.toUpperCase() === 'GET') {
         opts.params = opts.params || opts.data;
@@ -51,5 +61,43 @@ export default function (opts) {
             opts.data = qs.stringify(opts.data);
         }
     }
-    return axios(opts);
+    return new Promise(((resolve, reject) => {
+        axios(opts).then(function (response) {
+            const dataInfo = response.data;
+            if (dataInfo.status === 'failure') { // 失败
+                if (opts.isHandleFailure) {
+                    /*
+                    new Message({
+                        config: {
+                            content: `失败: ${dataInfo.message}`,
+                        },
+                    });
+                    */
+                }
+            }
+            if (dataInfo.status === 'success') { // 成功
+                if (opts.isHandleSuccess) {
+                    /*
+                    new Message({
+                        config: {
+                            content: `成功: ${dataInfo.message}`,
+                        },
+                    });
+                    */
+                }
+            }
+            resolve(dataInfo);
+        }).catch(function (error) {
+            if (opts.isHandleError) {
+                /*
+                new Message({
+                    config: {
+                        content: error, // 这里的error其实是一个Error类型的数据
+                    },
+                });
+                */
+            }
+            reject(error);
+        });
+    }));
 }
