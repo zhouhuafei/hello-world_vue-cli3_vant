@@ -23,12 +23,12 @@
         components: {},
         methods: {
             async init() {
-                const o = await axios({
+                const dataInfo = await axios({
                     method: 'GET',
-                    url: '/api/verify-code-canvas/',
+                    url: '/api/verify-code-canvas2/',
                     data: {a: 1, b: 2},
                 });
-                console.log(o);
+                console.log(dataInfo);
             },
         },
         mounted() {
