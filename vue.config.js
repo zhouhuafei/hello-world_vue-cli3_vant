@@ -1,7 +1,8 @@
 const isDevelopment = process.env.NODE_ENV === 'development';
 
 module.exports = {
-    publicPath: isDevelopment ? '/' : '/',
+    // baseUrl: '/',
+    // publicPath: isDevelopment ? '/' : '/',
     devServer: {
         proxy: {
             '/api': {
