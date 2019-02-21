@@ -42,6 +42,21 @@
             <van-cell title="单元格" value="内容" label="描述信息"/>
         </van-cell-group>
         <div style="height: 20px;"></div>
+        <van-cell-group>
+            <van-field
+                    v-model="username"
+                    label="用户名"
+                    placeholder="请输入用户名"
+                    error
+            />
+            <van-field
+                    v-model="phone"
+                    label="手机号"
+                    placeholder="请输入手机号"
+                    error-message="手机号格式错误"
+            />
+        </van-cell-group>
+        <div style="height: 20px;"></div>
     </div>
 </template>
 
@@ -57,6 +72,7 @@
                 value: '123',
                 username: '',
                 password: '',
+                phone: '',
             };
         },
         methods: {
