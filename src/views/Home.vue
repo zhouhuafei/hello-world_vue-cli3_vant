@@ -1,7 +1,36 @@
 <template>
     <div class="home">
+        <router-link to="/not-found">Go to Not - Found</router-link>
+        <div class="van-hairline--bottom">此乃首页</div>
+        <input type="text" placeholder="请输入">
+        <div>上面是输入框</div>
+        <div>下面是ui框架vant</div>
+        <van-cell-group>
+            <van-field v-model="value" placeholder="请输入用户名"/>
+        </van-cell-group>
+        <div style="height: 20px;"></div>
+        <van-cell-group>
+            <van-field
+                    v-model="username"
+                    required
+                    clearable
+                    label="用户名"
+                    right-icon="question-o"
+                    placeholder="请输入用户名"
+                    @click-right-icon="$toast('question')"
+            />
+            <van-field
+                    v-model="password"
+                    type="password"
+                    label="密码"
+                    placeholder="请输入密码"
+                    required
+            />
+        </van-cell-group>
+        <div style="height: 20px;"></div>
         <van-button type="default">默认按钮</van-button>
         <van-button type="primary">主要按钮</van-button>
+        <div style="height: 20px;"></div>
         <van-cell-group>
             <van-cell title="单元格" value="内容"/>
             <van-cell title="单元格" value="内容"/>
@@ -12,6 +41,7 @@
             <van-cell title="单元格" value="内容"/>
             <van-cell title="单元格" value="内容" label="描述信息"/>
         </van-cell-group>
+        <div style="height: 20px;"></div>
     </div>
 </template>
 
@@ -22,6 +52,13 @@
     export default {
         name: 'home',
         components: {},
+        data() {
+            return {
+                value: '123',
+                username: '',
+                password: '',
+            };
+        },
         methods: {
             async init() {
                 const dataInfo = await axios({

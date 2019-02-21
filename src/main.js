@@ -9,11 +9,26 @@ import {
     Button,
     CellGroup,
     Cell,
+    Field,
+    Checkbox,
+    CheckboxGroup,
+    Toast,
+    Dialog,
+    Notify,
+    Loading,
 } from 'vant';
 
-Vue.use(Button)
+Vue
+    .use(Loading)
+    .use(Toast)
+    .use(Dialog)
+    .use(Notify)
+    .use(Button)
     .use(CellGroup)
-    .use(Cell);
+    .use(Cell)
+    .use(Field)
+    .use(Checkbox)
+    .use(CheckboxGroup);
 
 new Vue({
     router,
