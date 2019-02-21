@@ -1,8 +1,15 @@
-const name = process.env.NODE_ENV;
+const env = process.env.NODE_ENV;
+const isDevelopment = env === 'development';
+let name = '';
+if (isDevelopment) {
+    name = env;
+} else {
+    name = process.env.VUE_APP_TITLE;
+}
 
 export default {
     name,
-    isDevelopment: name === 'development',
+    isDevelopment,
     config: {
         development: {
             publicPath: '/',

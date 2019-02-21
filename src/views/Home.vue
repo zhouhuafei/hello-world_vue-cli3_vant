@@ -29,6 +29,7 @@
                     url: '/api/verify-code-canvas/',
                     data: {a: 1, b: 2},
                 });
+                console.log('process.env.NODE_ENV process.env.VUE_APP_TITLE', process.env.NODE_ENV, process.env.VUE_APP_TITLE); // 开发环境process.env.VUE_APP_TITLE值为undefined，因未配置。
                 console.log(dataInfo, 'env', env);
             },
         },
