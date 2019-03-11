@@ -99,10 +99,8 @@ export default function (opts) {
             }
             // 这里我个人建议返回格式如下。否则后续使用async/await时如果接口报错会导致js报错。
             reject({
-                data: {
-                    status: 'error',
-                    message: error,
-                },
+                status: 'error',
+                message: error,
             });
         });
     }));
