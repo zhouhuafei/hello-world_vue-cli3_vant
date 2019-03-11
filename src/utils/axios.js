@@ -97,11 +97,9 @@ export default function (opts) {
                 });
                 */
             }
-            // 这里我个人建议返回格式如下。否则后续使用async/await时如果接口报错会导致js报错。
-            reject({
-                status: 'error',
-                message: error,
-            });
+            // 问：后续使用async/await时如果接口报错会导致js直接抛出错误怎么处理？
+            // 答：对接口进行catch并返回json加上标识即可。如此await得到的值就是处理后的json对象。
+            reject(error);
         });
     }));
 }
