@@ -5,6 +5,9 @@
     export default {
         name: 'not-found',
         methods: {},
+        created() {
+            console.log('NotFound created');
+        },
         mounted() {
             console.log('NotFound mounted');
         },

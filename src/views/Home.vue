@@ -86,6 +86,9 @@
                 console.log(dataInfo, 'env', env);
             },
         },
+        created() {
+            console.log('Home created');
+        },
         mounted() {
             console.log('Home mounted');
             this.init();
