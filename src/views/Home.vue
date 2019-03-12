@@ -87,7 +87,11 @@
             },
         },
         mounted() {
+            console.log('Home mounted');
             this.init();
+        },
+        destroyed() {
+            console.log('Home destroyed');
         },
     };
 </script>

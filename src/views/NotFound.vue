@@ -6,6 +6,10 @@
         name: 'not-found',
         methods: {},
         mounted() {
+            console.log('NotFound mounted');
+        },
+        destroyed() {
+            console.log('NotFound destroyed');
         },
     };
 </script>
