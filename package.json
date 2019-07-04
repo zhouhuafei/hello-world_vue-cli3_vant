@@ -6,9 +6,9 @@
     "cut": "node ./cut.js",
     "serve": "vue-cli-service serve",
     "build:build": "vue-cli-service build",
-    "build:alpha": "vue-cli-service build --mode alpha && npm run cut alpha",
-    "build:beta": "vue-cli-service build --mode beta && npm run cut beta",
-    "build": "npm run build:alpha && npm run build:beta && npm run build:build",
+    "build:alpha": "vue-cli-service build --mode alpha && npm run cut bak alpha",
+    "build:beta": "vue-cli-service build --mode beta && npm run cut bak beta",
+    "build": "npm run build:alpha && npm run build:beta && npm run build:build && npm run cut move dist && npm run cut del dist-bak",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
@@ -17,6 +17,7 @@
     "lodash": "^4.17.11",
     "qs": "^6.6.0",
     "vant": "^1.6.5",
+    "vinyl-fs": "^3.0.3",
     "vue": "^2.5.22",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
