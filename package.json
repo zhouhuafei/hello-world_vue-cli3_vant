@@ -3,10 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "cut": "node ./cut.js",
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
-    "alpha": "vue-cli-service build --mode alpha"
+    "build:build": "vue-cli-service build",
+    "build:alpha": "vue-cli-service build --mode alpha && npm run cut alpha",
+    "build:beta": "vue-cli-service build --mode beta && npm run cut beta",
+    "build": "npm run build:alpha && npm run build:beta && npm run build:build",
+    "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "amfe-flexible": "^2.2.1",

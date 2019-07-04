@@ -1,8 +1,17 @@
-const isDevelopment = process.env.NODE_ENV === 'development';
+console.log('process.env.VUE_APP_TITLE', process.env.VUE_APP_TITLE);
+
+let publicPath = '/';
+
+if (process.env.VUE_APP_TITLE === 'alpha') {
+    publicPath = '/alpha';
+}
+
+if (process.env.VUE_APP_TITLE === 'beta') {
+    publicPath = '/beta';
+}
 
 module.exports = {
-    baseUrl: '/base-url',
-    // publicPath: isDevelopment ? '/' : '/',
+    publicPath,
     devServer: {
         proxy: {
             '/api': {
